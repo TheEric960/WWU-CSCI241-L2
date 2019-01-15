@@ -296,8 +296,7 @@ public class SortsTest {
    * element at A[pi].
    * In other words, A[start..pi] <= A[pi] <= A[pi+1..end] */
   public static boolean isPartitioned(int[] A, int start, int end, int pi) {
-    // TODO - Lab 2
-    return false;
+	  return pi <= end && pi >= start;
   }
 
 
