@@ -23,7 +23,7 @@ public class Sorts {
   public void insertionSort(int[] A, int start, int end) {
     for (int head : A) {
     	int j = head;
-    	while (A) [j - 1] > A[j] {
+    	while (A[j - 1] > A[j]) {
     		swap(A, A[j], A[j-1]);
     		j--;
     	}
