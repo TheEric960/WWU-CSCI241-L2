@@ -21,7 +21,13 @@ public class Sorts {
   /** Sorts A[start..end] in place using insertion sort
     * Precondition: 0 <= start <= end <= A.length */
   public void insertionSort(int[] A, int start, int end) {
-    // TODO
+    for (int head : A) {
+    	int j = head;
+    	while (A) [j - 1] > A[j] {
+    		swap(A, A[j], A[j-1]);
+    		j--;
+    	}
+    }
   }
 
   /** Partitions A[start..end] around the pivot A[pivIndex]; returns the
