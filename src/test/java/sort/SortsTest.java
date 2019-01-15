@@ -247,8 +247,9 @@ public class SortsTest {
    * Preconditon: A is not null, and 0 <= start <= end <= A.length.
    **/
   private static boolean isSorted(int[] A, int start, int end) {
-	  int prev = -999;	// in case start is < 0
+	  int prev = 0;	
     	for (int i : A) {
+    		// check if number is equal to or larger than previous
     		if (i < prev) {
     			return false;
     		}
@@ -264,8 +265,30 @@ public class SortsTest {
    *    0 <= start <= end <= A.length = B.length 
    **/
   public static boolean sameElements(int[] A, int[] B, int start, int end) {
-    // TODO - Lab 2
-    return false;
+	  HashMap<Integer, Integer> mapA = new HashMap<>;
+	  HashMap<Integer, Integer> mapB = new HashMap<>;
+	  
+    	if (A.length == B.length) {
+    		// populate hashmaps
+    		for (int i = 0; i < A.length; i++) {
+    			mapA.put(A[i], mapA.get(A[i]) + 1)
+    			mapB.put(B[i], mapB.get(B[i]) + 1)
+    		}
+    		
+    		int count = start;
+    		
+    		// make sure occurences are equal
+    		while (!mapA.isEmpty()) {
+    			if (mapA.remove(count) != mapB.get(count)) {
+    				return false;
+    			}
+    				
+    			count++;
+    		}
+    	} else {
+    		return false;
+    	}
+    return true;
   }
 
 
