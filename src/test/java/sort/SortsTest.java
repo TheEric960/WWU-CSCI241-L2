@@ -243,7 +243,7 @@ public class SortsTest {
    * Preconditon: A is not null, and 0 <= start <= end <= A.length.
    **/
   private static boolean isSorted(int[] A, int start, int end) {
-	  int prev = 0;	
+	  int prev = A[0];
     	for (int i : A) {
     		// check if number is equal to or larger than previous
     		if (i < prev) {
