@@ -1,10 +1,6 @@
 
 package sort;
 
-import java.util.LinkedList;
-import java.util.ArrayList;
-import java.util.Queue;
-
 public class Sorts {
 
    // maintains a count of comparisons performed by this Sorts object
@@ -21,12 +17,13 @@ public class Sorts {
   /** Sorts A[start..end] in place using insertion sort
     * Precondition: 0 <= start <= end <= A.length */
   public void insertionSort(int[] A, int start, int end) {
-    for (int head : A) {
-    	int j = head;
-    	while (A[j - 1] > A[j]) {
-    		swap(A, A[j], A[j-1]);
-    		j--;
-    	}
+    for (int i = 1; i < A.length; i++) {
+      int j = i;
+
+      while (j > 0 && A[j - 1] > A[j]) {
+          swap(A, j, j - 1);
+          j--;
+      }
     }
   }
 

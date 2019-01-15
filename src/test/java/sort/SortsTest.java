@@ -1,19 +1,15 @@
 package sort;
 
-import static org.junit.Assert.*;
 import org.junit.FixMethodOrder;
-
-import java.util.Arrays;
-
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import java.util.Random;
-import java.util.Collections;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SortsTest {
@@ -267,28 +263,29 @@ public class SortsTest {
   public static boolean sameElements(int[] A, int[] B, int start, int end) {
 	  HashMap<Integer, Integer> mapA = new HashMap<>();
 	  HashMap<Integer, Integer> mapB = new HashMap<>();
-	  
+
+	  // hashmaps must be equal in length to be comparable
     	if (A.length == B.length) {
     		// populate hashmaps
     		for (int i = 0; i < A.length; i++) {
-    			mapA.put(A[i], mapA.get(A[i]) + 1);
-    			mapB.put(B[i], mapB.get(B[i]) + 1);
+    		  if (mapA.containsKey(A[i])) {
+                mapA.put(A[i], mapA.get(A[i]) + 1);
+              } else {
+                mapA.put(A[i], 1);
+              }
+
+              if (mapB.containsKey(B[i])) {
+                mapB.put(B[i], mapB.get(B[i]) + 1);
+              } else {
+                mapB.put(B[i], 1);
+              }
+
     		}
-    		
-    		int count = start;
-    		
-    		// make sure occurences are equal
-    		while (!mapA.isEmpty()) {
-    			if (mapA.remove(count) != mapB.get(count)) {
-    				return false;
-    			}
-    				
-    			count++;
-    		}
+
+    		return mapA.equals(mapB);
     	} else {
     		return false;
     	}
-    return true;
   }
 
 
