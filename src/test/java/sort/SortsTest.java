@@ -247,12 +247,12 @@ public class SortsTest {
    * Preconditon: A is not null, and 0 <= start <= end <= A.length.
    **/
   private static boolean isSorted(int[] A, int start, int end) {
-	  int max = -999;	// in case start is < 0
+	  int prev = -999;	// in case start is < 0
     	for (int i : A) {
-    		if (i < max) {
+    		if (i < prev) {
     			return false;
     		}
-    		max = i;
+    		prev = i;
     	}
     return true;
   }
