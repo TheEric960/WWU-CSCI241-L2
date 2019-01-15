@@ -265,14 +265,14 @@ public class SortsTest {
    *    0 <= start <= end <= A.length = B.length 
    **/
   public static boolean sameElements(int[] A, int[] B, int start, int end) {
-	  HashMap<Integer, Integer> mapA = new HashMap<>;
-	  HashMap<Integer, Integer> mapB = new HashMap<>;
+	  HashMap<Integer, Integer> mapA = new HashMap<>();
+	  HashMap<Integer, Integer> mapB = new HashMap<>();
 	  
     	if (A.length == B.length) {
     		// populate hashmaps
     		for (int i = 0; i < A.length; i++) {
-    			mapA.put(A[i], mapA.get(A[i]) + 1)
-    			mapB.put(B[i], mapB.get(B[i]) + 1)
+    			mapA.put(A[i], mapA.get(A[i]) + 1);
+    			mapB.put(B[i], mapB.get(B[i]) + 1);
     		}
     		
     		int count = start;
