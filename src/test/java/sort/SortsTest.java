@@ -135,8 +135,7 @@ public class SortsTest {
 
   @Test
   public void test21Partition() {
-//    int[] A = getRandomArray(200, 21);
-    int[] A = getRandomArray(10, 21);
+    int[] A = getRandomArray(200, 21);
     int[] Aorig = A.clone();
 
     Sorts s = new Sorts();
