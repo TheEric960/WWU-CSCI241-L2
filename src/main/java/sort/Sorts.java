@@ -34,8 +34,18 @@ public class Sorts {
    *  A[start..i] <= A[i] <= A[i+1..end] 
    **/
   public int partition(int[] A, int start, int end, int pivIndex) {
-    // TODO
-    return 0;
+    swap(A, pivIndex, start);  // get pivot to start to partition
+    int j = start + 1;
+
+    for (int i = start + 1; i < end; i++) {
+      if (A[i] < A[start]) {
+        swap(A, j, i);
+        j++;
+      }
+    }
+
+    swap(A, start, j - 1);
+    return j - 1;
   }
 
   /** use quicksort to sort the subarray A[start..end] */

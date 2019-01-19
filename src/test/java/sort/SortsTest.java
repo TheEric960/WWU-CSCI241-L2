@@ -135,7 +135,8 @@ public class SortsTest {
 
   @Test
   public void test21Partition() {
-    int[] A = getRandomArray(200, 21);
+//    int[] A = getRandomArray(200, 21);
+    int[] A = getRandomArray(10, 21);
     int[] Aorig = A.clone();
 
     Sorts s = new Sorts();
@@ -266,26 +267,26 @@ public class SortsTest {
 
 	  // hashmaps must be equal in length to be comparable
     	if (A.length == B.length) {
-    		// populate hashmaps
-    		for (int i = 0; i < A.length; i++) {
-    		  if (mapA.containsKey(A[i])) {
-                mapA.put(A[i], mapA.get(A[i]) + 1);
-              } else {
-                mapA.put(A[i], 1);
-              }
+          // populate hashmaps
+          for (int i = 0; i < A.length; i++) {
+            if (mapA.containsKey(A[i])) {
+              mapA.put(A[i], mapA.get(A[i]) + 1);
+            } else {
+              mapA.put(A[i], 1);
+            }
 
-              if (mapB.containsKey(B[i])) {
-                mapB.put(B[i], mapB.get(B[i]) + 1);
-              } else {
-                mapB.put(B[i], 1);
-              }
+            if (mapB.containsKey(B[i])) {
+              mapB.put(B[i], mapB.get(B[i]) + 1);
+            } else {
+              mapB.put(B[i], 1);
+            }
 
-    		}
+          }
 
     		return mapA.equals(mapB);
-    	} else {
-    		return false;
     	}
+
+    	return false;
   }
 
 
@@ -294,13 +295,13 @@ public class SortsTest {
    * In other words, A[start..pi] <= A[pi] <= A[pi+1..end] */
   public static boolean isPartitioned(int[] A, int start, int end, int pi) {
     for (int i = start; i < pi; i++) {
-      if (A[i] > A[pi] || A[i] < A[start]) {
+      if (A[i] > A[pi]) {
         return false;
       }
     }
 
     for (int i = pi; i < end; i++) {
-      if (A[i] < A[pi] || A[i] > A[end - 1]) {
+      if (A[i] < A[pi]) {
         return false;
       }
     }
